@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;900&display=swap');
+
+body {
+    font-family: 'Poppins', sans-serif !important;
+}
+
+.fw-black {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 900 !important;
+}
+
+
+@media (min-width : 992px) {
+    .offcanvas {
+      visibility      : visible;
+      position        : relative;
+      background      : none;
+      border          : none;
+      justify-content : end;
+      color           : red;
+    }
+  }
+  @media (max-width : 992px) {
+    .offcanvas {
+      width : 250px !important;
+    }
+    .offcanvas-start-lg {
+      top          : 0;
+      left         : 0;
+      border-right : 1px solid rgba(0, 0, 0, .2);
+      transform    : translateX(-100%);
+    }
+  }
+  
+  *:focus:not(a){
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+.bg-danger {
+    background-color: #ee4878 !important;
+    color: white !important;
+}
+.text-danger {
+    color: #ee4878 !important;
+}
+.btn-danger {
+    background-color: #ee4878 !important;
+    color: white !important;
+}
+.list-group-item-action {
+  border: 0;
+  border-radius: 0 !important;
+  border-bottom: solid 1px #d4d4d4;
+}
+.list-group-item-action.active {
+  background-color: white !important;
+  color: black;
+  border-bottom: solid 2px #ee4878;
+}
