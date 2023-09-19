@@ -12,8 +12,8 @@ const Navbar = () => {
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light border py-3">
       <div className="container">
-        <NavLink className="navbar-brand fw-bolder h1" href="#">
-          MyMento
+        <NavLink className="navbar-brand fw-bolder h1" to="/">
+        MyMento<span className="text-danger">.</span>
         </NavLink>
 
         {/* Navbar Toggle Button */}
@@ -62,10 +62,14 @@ const Navbar = () => {
             </div> */}
               <div class="row m-0">
                 <div class="col-12 col-lg-6 p-0 pt-2 pt-lg-0 px-lg-1">
-                  <button class="btn btn-outline-dark px-5 py-2 w-100">Masuk</button>
+                  <NavLink to="/login">
+                    <button class="btn btn-outline-dark px-5 py-2 w-100">Masuk</button>
+                  </NavLink>
                 </div>
                 <div class="col-12 col-lg-6 p-0 pt-2 pt-lg-0 px-lg-1">
-                  <button class="btn btn-dark px-5 py-2 w-100">Daftar</button>
+                  <NavLink to="/signup">
+                    <button className="btn btn-dark px-5 py-2 w-100">Daftar</button>
+                  </NavLink>
                 </div>
               </div>
             <div className="justify-content-end">

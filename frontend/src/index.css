@@ -47,6 +47,7 @@ body {
 .btn-danger {
     background-color: #ee4878 !important;
     color: white !important;
+    border: 0px !important;
 }
 .list-group-item-action {
   border: 0;
@@ -57,4 +58,8 @@ body {
   background-color: white !important;
   color: black;
   border-bottom: solid 2px #ee4878;
+}
+/* CSS kustom untuk mengubah warna placeholder */
+input::placeholder {
+  opacity: 50% !important;
 }
