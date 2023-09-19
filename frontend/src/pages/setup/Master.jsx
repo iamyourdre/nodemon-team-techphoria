@@ -1,10 +1,10 @@
 import React from 'react';
-import {LandingNavbar} from '../../components/Navbar.jsx';
+import {SetupNavbar} from '../../components/Navbar.jsx';
 
 const Master = ({ children }) => {
   return (
     <React.Fragment>
-      <LandingNavbar />
+      <SetupNavbar />
       <div className="container">
         <main>{children}</main>
       </div>
