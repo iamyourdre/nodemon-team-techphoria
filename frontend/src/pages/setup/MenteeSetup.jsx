@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import Select from 'react-select'; // Import react-select
 import Master from './Master';
 
-const MentorStep1 = () => {
+const MenteeStep1 = () => {
   const [profileImage, setProfileImage] = useState("/assets/profile/blank-profile.png");
   const [gender, setGender] = useState(''); // State untuk jenis kelamin
   const [country, setCountry] = useState(''); // State untuk negara
@@ -15,7 +15,7 @@ const MentorStep1 = () => {
     console.log('Gender:', gender);
     console.log('Country:', country);
     
-    navigate('/setup/mentor/2');
+    navigate('/setup/mentee/2');
   };
 
   const handleImageChange = (e) => {
@@ -100,7 +100,7 @@ const MentorStep1 = () => {
   );
 };
 
-const MentorStep2 = () => {
+const MenteeStep2 = () => {
   const [company, setCompany] = useState('');
   const [jobTitle, setJobTitle] = useState('');
   const [experienceYears, setExperienceYears] = useState('');
@@ -118,12 +118,12 @@ const MentorStep2 = () => {
     // Simpan data ini atau lakukan langkah lain sesuai kebutuhan Anda
 
     // Kemudian, navigasikan pengguna ke langkah berikutnya
-    navigate('/setup/mentor/3');
+    navigate('/setup/mentee/3');
   };
   
   const handleBack = () => {
     // Gunakan fungsi navigate untuk kembali ke langkah sebelumnya
-    navigate('/setup/mentor/1');
+    navigate('/setup/mentee/1');
   };
 
   return (
@@ -160,17 +160,6 @@ const MentorStep2 = () => {
                 />
               </div>
               <div className="mb-3">
-                <label htmlFor="experienceYears" className="form-label">Berapa tahun pengalaman profesional?</label>
-                <input
-                  type="number"
-                  className="form-control p-3"
-                  id="experienceYears"
-                  value={experienceYears}
-                  onChange={(e) => setExperienceYears(e.target.value)}
-                  required
-                />
-              </div>
-              <div className="mb-3">
                 <label htmlFor="professionalSite" className="form-label">Situs Profesional (Portofolio/LinkedIn)</label>
                 <input
                   type="url"
@@ -197,7 +186,7 @@ const MentorStep2 = () => {
   );
 };
 
-const MentorStep3 = () => {
+const MenteeStep3 = () => {
   const [primarySkill, setPrimarySkill] = useState(null); // Set nilai awal ke null
   const [additionalSkills, setAdditionalSkills] = useState([]); // Set nilai awal ke array kosong
   const [softSkills, setKeterampilan] = useState([]); // Set nilai awal ke array kosong
@@ -214,12 +203,12 @@ const MentorStep3 = () => {
     // Simpan data ini atau lakukan langkah lain sesuai kebutuhan Anda
 
     // Kemudian, navigasikan pengguna ke langkah berikutnya
-    navigate('/setup/mentor/4');
+    navigate('/setup/mentee/4');
   };
 
   const handleBack = () => {
     // Gunakan fungsi navigate untuk kembali ke langkah sebelumnya
-    navigate('/setup/mentor/2');
+    navigate('/setup/mentee/2');
   };
 
   const keahlian_utama = [
@@ -348,7 +337,7 @@ const MentorStep3 = () => {
   );
 };
 
-const MentorStep4 = () => {
+const MenteeStep4 = () => {
   const [bio, setBio] = useState('');
   const navigate = useNavigate();
 
@@ -359,18 +348,18 @@ const MentorStep4 = () => {
     // Simpan data ini atau lakukan langkah lain sesuai kebutuhan Anda
 
     // Kemudian, navigasikan pengguna ke langkah berikutnya
-    navigate('/setup/mentor/5');
+    navigate('/setup/mentee/5');
   };
 
   const handleBack = () => {
     // Gunakan fungsi navigate untuk kembali ke langkah sebelumnya
-    navigate('/setup/mentor/3');
+    navigate('/setup/mentee/3');
   };
 
   // Contoh bio untuk alert
-  const exampleBio = `Saya adalah seorang profesional dengan pengalaman selama 5 tahun di industri teknologi.
-    Saya memiliki latar belakang dalam pengembangan perangkat lunak dan berfokus pada pengembangan web.
-    Saya senang berbagi pengetahuan dan pengalaman saya dengan orang lain dan siap membantu Anda mencapai tujuan Anda.`;
+  const exampleBio = `Saya adalah seorang mahasiswa Ilmu Komputer di Universitas XYZ yang memiliki pengalaman selama 5 tahun dalam industri teknologi. 
+  Saya memiliki latar belakang dalam pengembangan perangkat lunak dan berfokus pada pengembangan web. 
+  Saya berharap dapat menemukan mentor yang bisa membantu untuk mencapai tujuan akademis saya.`;
 
   return (
     <Master>
@@ -415,13 +404,15 @@ const MentorStep4 = () => {
   );
 };
 
-const MentorStep5 = () => {
+const MenteeStep5 = () => {
   const navigate = useNavigate();
 
   const handleFinish = () => {
-    // Tambahkan logika penyimpanan data atau tindakan lain yang diperlukan
-    // Setelah selesai, Anda dapat mengarahkan pengguna ke halaman beranda atau langkah selanjutnya
-    navigate('/mentor'); // Ganti '/beranda' dengan URL tujuan setelah selesai
+    navigate('/recommended_mentor');
+  };
+
+  const handleFinish2 = () => {
+    navigate('/dashboard');
   };
 
   return (
@@ -437,6 +428,9 @@ const MentorStep5 = () => {
             <div className="mt-4">
               <button type="button" className="btn btn-danger p-3 w-100" onClick={handleFinish}>Selesai</button>
             </div>
+            <div className="mt-4">
+              <button type="button" className="btn btn-dark p-3 w-100" onClick={handleFinish2}>Cek Dasbor (nanti ini hapus aja)</button>
+            </div>
           </div>
         </div>
       </div>
@@ -445,4 +439,4 @@ const MentorStep5 = () => {
 };
 
 
-export {MentorStep1, MentorStep2, MentorStep3, MentorStep4, MentorStep5};
+export {MenteeStep1, MenteeStep2, MenteeStep3, MenteeStep4, MenteeStep5};
