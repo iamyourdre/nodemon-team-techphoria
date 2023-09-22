@@ -12,6 +12,8 @@ import Login from "./pages/landing/Login";
 import RoleType from "./pages/landing/RoleType";
 import {MentorStep1, MentorStep2, MentorStep3, MentorStep4, MentorStep5} from "./pages/setup/MentorSetup";
 import MentorDashboard from "./pages/mentor/Dashboard";
+import MenteeDashboard from "./pages/mentee/Dashboard";
+import { MenteeStep1, MenteeStep2, MenteeStep3, MenteeStep4, MenteeStep5 } from "./pages/setup/MenteeSetup";
 
 function App() {
   return (
@@ -27,7 +29,13 @@ function App() {
           <Route path="/setup/mentor/3" element={<MentorStep3/>}></Route>
           <Route path="/setup/mentor/4" element={<MentorStep4/>}></Route>
           <Route path="/setup/mentor/5" element={<MentorStep5/>}></Route>
+          <Route path="/setup/mentee/1" element={<MenteeStep1/>}></Route>
+          <Route path="/setup/mentee/2" element={<MenteeStep2/>}></Route>
+          <Route path="/setup/mentee/3" element={<MenteeStep3/>}></Route>
+          <Route path="/setup/mentee/4" element={<MenteeStep4/>}></Route>
+          <Route path="/setup/mentee/5" element={<MenteeStep5/>}></Route>
           <Route path="/mentor" element={<MentorDashboard/>}></Route>
+          <Route path="/mentee" element={<MenteeDashboard/>}></Route>
         </Routes>
       </BrowserRouter>
     </div>
