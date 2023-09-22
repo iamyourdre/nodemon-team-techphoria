@@ -14,6 +14,7 @@ import {MentorStep1, MentorStep2, MentorStep3, MentorStep4, MentorStep5} from ".
 import MentorDashboard from "./pages/mentor/Dashboard";
 import MenteeDashboard from "./pages/mentee/Dashboard";
 import { MenteeStep1, MenteeStep2, MenteeStep3, MenteeStep4, MenteeStep5 } from "./pages/setup/MenteeSetup";
+import {MentorRecommendation} from "./pages/mentee/MyMentor";
 
 function App() {
   return (
@@ -36,6 +37,7 @@ function App() {
           <Route path="/setup/mentee/5" element={<MenteeStep5/>}></Route>
           <Route path="/mentor" element={<MentorDashboard/>}></Route>
           <Route path="/mentee" element={<MenteeDashboard/>}></Route>
+          <Route path="/mentee/my_mentor" element={<MentorRecommendation/>}></Route>
         </Routes>
       </BrowserRouter>
     </div>

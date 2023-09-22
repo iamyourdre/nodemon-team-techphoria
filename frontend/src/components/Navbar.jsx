@@ -127,4 +127,66 @@ const SetupNavbar = () => {
     </nav>
   )
 }
-export { LandingNavbar, SetupNavbar };
+
+const MenteeNavbar = () => {
+
+  const navItems = [
+    { text: 'Dasbor', link: '/mentee' },
+    { text: 'Mentor Saya', link: '/mentee/my_mentor' },
+  ];
+
+  return (
+    <nav className="navbar navbar-expand-lg navbar-light bg-light border py-3">
+      <div className="container">
+        <NavLink className="navbar-brand fw-bolder h1" to="/">
+        MyMento<span className="text-danger">.</span>
+        </NavLink>
+
+        {/* Navbar Toggle Button */}
+        <button
+          className="btn btn-light border-0 navbar-toggler px-2"
+          type="button"
+          data-bs-toggle="offcanvas"
+          data-bs-target="#offcanvasExample"
+          aria-controls="offcanvasExample"
+        >
+          <FontAwesomeIcon icon="fa-solid fa-bars" />
+        </button>
+
+        <div
+          className="offcanvas offcanvas-start-lg bg-light"
+          tabIndex={-1}
+          id="offcanvasExample"
+          aria-labelledby="offcanvasExampleLabel"
+        >
+          <div className="offcanvas-header d-flex d-lg-none">
+            <h5 className="offcanvas-title text-dark" id="offcanvasExampleLabel">
+              Navbar
+            </h5>
+            <NavLink
+              // href="javascript:void(0)"
+              className="text-reset p-0"
+              data-bs-dismiss="offcanvas"
+              aria-label="close"
+            >
+              <FontAwesomeIcon icon="fa-solid fa-xmark" />
+            </NavLink>
+          </div>
+          <div className="offcanvas-body">
+            <ul className="navbar-nav me-auto">
+              {navItems.map((item, index) => (
+                <li className="nav-item" key={index}>
+                  <a className="nav-link active" aria-current="page" href={item.link}>
+                    {item.text}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </nav>
+  )
+}
+
+export { LandingNavbar, SetupNavbar, MenteeNavbar };

@@ -19,7 +19,7 @@ const MenteeDashboard = () => {
       <div className="container my-5">
         <div className="row ">
           <div className="col-md-6 py-5">
-            <p className='h2 fw-bolder text-danger'>Welcome <span className='text-dark'>Mentor</span>.</p>
+            <p className='h2 fw-bolder text-danger'>Welcome <span className='text-dark'>Mentee</span>.</p>
 
           </div>
         </div>

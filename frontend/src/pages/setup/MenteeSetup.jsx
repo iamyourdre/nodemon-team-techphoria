@@ -254,14 +254,14 @@ const MenteeStep3 = () => {
         <div className="row justify-content-center">
           <div className="col-md-6 py-5">
             <p className="opacity-75"><small>Langkah 3 / 5</small></p>
-            <p className='h2 fw-bolder text-danger'>Lengkapi <span className='text-dark'>Keahlian & Keterampilan Anda</span>.</p>
-            <p>Tunjukkan keahlian utama dan keterampilan yang Anda kuasai.</p>
+            <p className='h2 fw-bolder text-danger'>Lengkapi <span className='text-dark'>Minat & Bakat Anda</span>.</p>
+            <p>Tunjukkan fokus bidang yang Anda minati.</p>
           </div>
           <div className="col-md-6">
             <form onSubmit={handleSubmit}>
 
               <div className="mb-3">
-                <label htmlFor="primarySkill" className="form-label">Pilih keahlian utama</label>
+                <label htmlFor="primarySkill" className="form-label">Pilih bidang utama</label>
                 <Select
                   id="primarySkill"
                   options={keahlian_utama}
@@ -274,7 +274,7 @@ const MenteeStep3 = () => {
               </div>
 
               <div className="mb-3">
-                <label htmlFor="additionalSkills" className="form-label">Pilih keahlian lain yang juga anda kuasai</label>
+                <label htmlFor="additionalSkills" className="form-label">Pilih bidang lain yang juga anda minati</label>
                 <Select
                   id="additionalSkills"
                   options={keahlian_utama}
@@ -408,11 +408,7 @@ const MenteeStep5 = () => {
   const navigate = useNavigate();
 
   const handleFinish = () => {
-    navigate('/recommended_mentor');
-  };
-
-  const handleFinish2 = () => {
-    navigate('/dashboard');
+    navigate('/mentee/my_mentor');
   };
 
   return (
@@ -427,9 +423,6 @@ const MenteeStep5 = () => {
             <p>Silakan kunjungi <a href="/ketentuan-layanan">Ketentuan Layanan</a> kami untuk memahami lebih lanjut mengenai persyaratan dan aturan yang berlaku.</p>
             <div className="mt-4">
               <button type="button" className="btn btn-danger p-3 w-100" onClick={handleFinish}>Selesai</button>
-            </div>
-            <div className="mt-4">
-              <button type="button" className="btn btn-dark p-3 w-100" onClick={handleFinish2}>Cek Dasbor (nanti ini hapus aja)</button>
             </div>
           </div>
         </div>
