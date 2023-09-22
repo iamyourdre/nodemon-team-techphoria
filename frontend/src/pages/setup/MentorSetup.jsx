@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import Select from 'react-select'; // Import react-select
 import Master from './Master';
 
-const MenteeStep1 = () => {
+const MentorStep1 = () => {
   const [profileImage, setProfileImage] = useState("/assets/profile/blank-profile.png");
   const [gender, setGender] = useState(''); // State untuk jenis kelamin
   const [country, setCountry] = useState(''); // State untuk negara
@@ -15,7 +15,7 @@ const MenteeStep1 = () => {
     console.log('Gender:', gender);
     console.log('Country:', country);
     
-    navigate('/setup/mentee/2');
+    navigate('/setup/mentor/2');
   };
 
   const handleImageChange = (e) => {
@@ -100,7 +100,7 @@ const MenteeStep1 = () => {
   );
 };
 
-const MenteeStep2 = () => {
+const MentorStep2 = () => {
   const [company, setCompany] = useState('');
   const [jobTitle, setJobTitle] = useState('');
   const [experienceYears, setExperienceYears] = useState('');
@@ -115,6 +115,9 @@ const MenteeStep2 = () => {
     console.log('Tahun Pengalaman Profesional:', experienceYears);
     console.log('Situs Profesional:', professionalSite);
 
+    // Simpan data ini atau lakukan langkah lain sesuai kebutuhan Anda
+
+    // Kemudian, navigasikan pengguna ke langkah berikutnya
     navigate('/setup/mentor/3');
   };
   
@@ -345,6 +348,73 @@ const MentorStep3 = () => {
   );
 };
 
+const MentorStep4 = () => {
+  const [bio, setBio] = useState('');
+  const navigate = useNavigate();
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log('Bio Anda:', bio);
+
+    // Simpan data ini atau lakukan langkah lain sesuai kebutuhan Anda
+
+    // Kemudian, navigasikan pengguna ke langkah berikutnya
+    navigate('/setup/mentor/5');
+  };
+
+  const handleBack = () => {
+    // Gunakan fungsi navigate untuk kembali ke langkah sebelumnya
+    navigate('/setup/mentor/3');
+  };
+
+  // Contoh bio untuk alert
+  const exampleBio = `Saya adalah seorang profesional dengan pengalaman selama 5 tahun di industri teknologi.
+    Saya memiliki latar belakang dalam pengembangan perangkat lunak dan berfokus pada pengembangan web.
+    Saya senang berbagi pengetahuan dan pengalaman saya dengan orang lain dan siap membantu Anda mencapai tujuan Anda.`;
+
+  return (
+    <Master>
+      <div className="container my-5">
+        <div className="row justify-content-center">
+          <div className="col-md-6 py-5">
+            <p className="opacity-75"><small>Langkah 4 / 5</small></p>
+            <p className='h2 fw-bolder text-danger'>Isi <span className='text-dark'>Bio Anda</span>.</p>
+            <p>Deskripsi singkat tentang diri Anda dan latar belakang profesional Anda.</p>
+          </div>
+          <div className="col-md-6">
+            <form onSubmit={handleSubmit}>
+              <div className="mb-3">
+                <label htmlFor="bio" className="form-label">Bio Anda</label>
+                <textarea
+                  rows="5"
+                  className="form-control p-3"
+                  id="bio"
+                  value={bio}
+                  onChange={(e) => setBio(e.target.value)}
+                  required
+                />
+              </div>
+              <div className="alert alert-info">
+                <strong>Contoh Bio:</strong>
+                <br />
+                {exampleBio}
+              </div>
+              <div className="row m-0 mb-3">
+                <div className="col-4 p-0">
+                  <button type="button" className="btn btn-dark p-3 me-3" onClick={handleBack}>Kembali</button>
+                </div>
+                <div className="col-8 p-0">
+                  <button type="submit" className="btn btn-danger p-3 w-100">Lanjutkan</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </Master>
+  );
+};
+
 const MentorStep5 = () => {
   const navigate = useNavigate();
 
@@ -375,4 +445,4 @@ const MentorStep5 = () => {
 };
 
 
-export {MentorStep1, MentorStep2, MentorStep3};
+export {MentorStep1, MentorStep2, MentorStep3, MentorStep4, MentorStep5};
