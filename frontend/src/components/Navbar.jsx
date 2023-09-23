@@ -136,7 +136,7 @@ const MenteeNavbar = () => {
   ];
 
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-light border py-3">
+    <nav className="navbar navbar-expand-lg navbar-light bg-light border py-3 fixed-top">
       <div className="container">
         <NavLink className="navbar-brand fw-bolder h1" to="/">
         MyMento<span className="text-danger">.</span>
