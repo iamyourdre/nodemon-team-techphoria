@@ -59,13 +59,13 @@ const MentorRecommendation = () => {
         </div>
       </div> */}
 
-      <div className="container my-5">
+      <div className="container my-5 py-5">
         <div className="row">
           <div className="col-md-6 pb-3">
             <div className="card border-1 h-100">
               <div className="card-body p-4">
                 <div className="d-flex flex-column h-100 justify-content-center">
-                  <p className='h2 fw-bolder text-danger'>Hai <span className='text-dark'>@username</span>!</p>
+                  <p className='h2 fw-bolder text-danger'>Hai <span className='text-dark'>Adrian</span>!</p>
                   <p cl>Berdasarkan pilihan minat & bakat kamu, <b>MyMento</b> merekomendasikan beberapa mentor yang bisa kamu pilih.</p>
                 </div>
               </div>
