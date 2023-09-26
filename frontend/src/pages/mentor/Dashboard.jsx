@@ -1,54 +1,68 @@
 import React, { useState } from 'react';
 import Master from './Master';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-
+import { NavLink } from 'react-router-dom';
 
 
 
 const MentorDashboard = () => {
+  
+  const mentoringRequest = [
+    {
+      imgSrc: "https://i.pinimg.com/1200x/36/aa/f4/36aaf493b9b534111a1d03df2ca4a271.jpg",
+      name: "Naya",
+      datetime: "25 Sep 2023 (19.00 WIB)",
+      field: "Android Development",
+    }
+  ];  
+
   const mentoringSession = [
     {
-      imgSrc: "https://media.newyorker.com/photos/5acd47ed4caa416a2118289c/1:1/w_4479,h_4479,c_limit/st-felix-zuckerberg-suit.JPG",
-      name: "Naya",
-      datetime: "23 Sep 2023 (13.00 WIB)",
-      field: "Data Analyst",
-    },
-    {
-      imgSrc: "https://media.newyorker.com/photos/5acd47ed4caa416a2118289c/1:1/w_4479,h_4479,c_limit/st-felix-zuckerberg-suit.JPG",
-      name: "Monica",
-      datetime: "25 Sep 2023 (09.00 WIB)",
+      imgSrc: "https://images.unsplash.com/photo-1527980965255-d3b416303d12?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1480&q=80",
+      name: "Nico",
+      datetime: "24 Sep 2023 (15.00 WIB)",
       field: "Software Developer",
     },
     {
-      imgSrc: "https://i.guim.co.uk/img/media/6b63ab55f6a583fc70ad661c2fca52ca4badd1d7/0_188_5472_3283/master/5472.jpg?width=1200&height=1200&quality=85&auto=format&fit=crop&s=b76e45616b43e3e5bb0638b13b464b33",
-      name: "Panjul",
-      datetime: "30 Sep 2023 (13.00 WIB)",
-      field: "Data Analyst",
+      imgSrc: "https://images.unsplash.com/photo-1576092727582-b2508a9867e5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1475&q=80",
+      name: "Adelia",
+      datetime: "26 Sep 2023 (11.00 WIB)",
+      field: "Android Development",
     },
-  ];  
+    {
+      imgSrc: "https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1480&q=80",
+      name: "Alexander",
+      datetime: "26 Sep 2023 (11.00 WIB)",
+      field: "Software Developer",
+    },
+  ];
+
+  const mentoringRecord = [
+    {
+      imgSrc: "https://images.unsplash.com/photo-1527980965255-d3b416303d12?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1480&q=80",
+      name: "Nico",
+      datetime: "17 Sep 2023 (15.00 WIB)",
+      field: "Software Developer",
+    },
+    {
+      imgSrc: "https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1480&q=80",
+      name: "Alexander",
+      datetime: "19 Sep 2023 (11.00 WIB)",
+      field: "Software Developer",
+    },
+  ];
+
   return (
     <Master>
-      {/* <div className="container my-5">
-        <div className="row justify-content-center">
-          <div className="col-md-6 py-5">
-            <p className='h2 fw-bolder text-danger'>In <span className='text-dark'>Progress</span>.</p>
-            <p>Be right back..</p>
-          </div>
-        </div>
-      </div> */}
 
-      <div className="container my-5">
-        <div className="row ">
-          <div className="col-md-6 ">
-            <p className='h2 fw-bolder text-danger'>Welcome <span className='text-dark'>Mentor</span>.</p>
+      <br />
+      <div className="container my-5 py-5">
 
-          </div>
-        </div>
-
-        <div className='h5 mx-10 mt-5'><p><strong>Permintaan untuk Anda</strong></p></div>
-        <p className='mb-5 small'>Para mentee ingin bertemu denganmu!</p>
+        <p className='h2 fw-bolder text-danger'>Hai, <span className='text-dark'>Mentor</span>!</p>
+        <p className='h5'><strong>Selamat datang kembali.</strong></p>
+        <p className='mb-5 small'>Ada permintaan mentoring yang menunggu konfirmasi anda.</p>
         <div className="row">
-          {mentoringSession.map((mentee, index) => (
+          {mentoringRequest.map((mentee, index) => (
             <div className="col-md-4 pb-3" key={index}>
               <div className="card border-1">
                 <div className="card-body">
@@ -61,86 +75,90 @@ const MentorDashboard = () => {
                       <hr className='my-2'/>
                       <h6><span class="badge bg-danger"><FontAwesomeIcon icon="fa-solid fa-user-tie" />&nbsp; {mentee.field}</span></h6>
                     </div>
-                    <div className="col-12 pt-2">
-                        <button className="btn btn-dark w-100"><FontAwesomeIcon icon="fa-solid fa-chalkboard-user" />&nbsp; {mentee.datetime}</button>
+                    <div className="">
+                      <NavLink to={'/mentor/detail'}><button className='btn btn-danger w-100'>Lihat Detail</button></NavLink>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
           ))}
-
-          <div className="col-12 pb-3">
-            <button className="btn btn-light h-100 float-end"><FontAwesomeIcon icon="fa-solid fa-circle-chevron-down" />&nbsp; Tampilkan Lainnya</button>
-          </div>
         </div>
 
-         
-        </div>
         <hr className='my-4'/>
-      
-      <div className='h5 mx-10'><p><strong>Sesi yang akan datang</strong></p></div>
-      <p className='mb-5 small'>Jangan lupa menghadiri sesi ini!</p>
-      <div className="row">
-          {mentoringSession.map((mentee, index) => (
+        
+        <p className='small'>Ada sesi yang akan datang. Jangan lupa menghadirinya!</p>
+        
+        <div className="row">
+          {mentoringSession.map((mentor, index) => (
             <div className="col-md-4 pb-3" key={index}>
               <div className="card border-1">
                 <div className="card-body">
                   <div className="row">
                     <div className="col-3 ">
-                      <img src={mentee.imgSrc} alt={mentee.name} className='w-100 rounded-2 mb-3'/>
+                      <img src={mentor.imgSrc} alt={mentor.name} className='w-100 rounded-2 mb-3'/>
                     </div>
                     <div className="col-9">
-                      <p className="h6 fw-bolder m-0 p-0">{mentee.name}</p>
+                      <p className="h6 fw-bolder m-0 p-0">{mentor.name}</p>
                       <hr className='my-2'/>
-                      <h6><span class="badge bg-danger"><FontAwesomeIcon icon="fa-solid fa-user-tie" />&nbsp; {mentee.field}</span></h6>
+                      <h6><span class="badge bg-danger"><FontAwesomeIcon icon="fa-solid fa-user-tie" />&nbsp; {mentor.field}</span></h6>
                     </div>
                     <div className="col-12 pt-2">
-                        <button className="btn btn-dark w-100"><FontAwesomeIcon icon="fa-solid fa-chalkboard-user" />&nbsp; {mentee.datetime}</button>
+                        <button className="btn btn-dark w-100"><FontAwesomeIcon icon="fa-solid fa-chalkboard-user" />&nbsp; {mentor.datetime}</button>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
           ))}
-
           <div className="col-12 pb-3">
             <button className="btn btn-light h-100 float-end"><FontAwesomeIcon icon="fa-solid fa-circle-chevron-down" />&nbsp; Tampilkan Lainnya</button>
           </div>
         </div>
         
         <hr className='my-4'/>
-
-        <div className='h5 mx-10'><p><strong>Riwayat</strong></p></div>
-        <p classNameName='mb-5 small'>Lihat lagi sesi yang telah Anda lakukan sebelumnya</p>
+        
+        <p className='h5 fw-bolder py-3'>Tonton ulang sesi sebelumnya</p>
+        
         <div className="row">
-          {mentoringSession.map((mentee, index) => (
-            <div className="col-md-4 pb-3" key={index}>
-              <div className="card border-1">
+          <div className="col-6 col-md-4 col-lg-3 pb-3">
+            <NavLink>
+              <div className="card rounded-3 bg-dark h-100">
                 <div className="card-body">
+                  <div className="d-flex flex-column h-100 justify-content-center text-light text-center">
+                    <p><FontAwesomeIcon icon="fa-solid fa-circle-chevron-down" />&nbsp; Lihat Semua</p>
+                  </div>
+                </div>
+              </div>
+            </NavLink>
+          </div>
+          {mentoringRecord.slice().reverse().map((mentor, index) => (
+            <div className="col-6 col-md-4 col-lg-3 pb-3" key={index}>
+              <div className="card rounded-3">
+                <div className="card-body p-0">
                   <div className="row">
-                    <div className="col-3 ">
-                      <img src={mentee.imgSrc} alt={mentee.name} className='w-100 rounded-2 mb-3'/>
+                    <div className="col-12">
+                      <div className="position relative">
+                        <img src={mentor.imgSrc} alt="Hello" className="w-100 rounded-top-3 opacity-75"/>
+                        <FontAwesomeIcon icon="fas fa-play-circle" className='position-absolute bottom-50 start-50 translate-middle h1 text-light'/>
+                      </div>
                     </div>
-                    <div className="col-9">
-                      <p className="h6 fw-bolder m-0 p-0">{mentee.name}</p>
-                      <hr className='my-2'/>
-                      <h6><span class="badge bg-danger"><FontAwesomeIcon icon="fa-solid fa-user-tie" />&nbsp; {mentee.field}</span></h6>
-                    </div>
-                    <div className="col-12 pt-2">
-                        <button className="btn btn-dark w-100"><FontAwesomeIcon icon="fa-solid fa-chalkboard-user" />&nbsp; {mentee.datetime}</button>
+                    <div className="col-12">
+                      <div className="p-3">             
+                        <p className="h6 fw-bolder m-0 p-0">{mentor.name}</p>
+                        <hr className='my-2'/>
+                        <h6><span class="badge bg-secondary">{mentor.datetime}</span></h6>
+                        <h6><span class="badge bg-danger">{mentor.field}</span></h6>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
           ))}
-
-          <div className="col-12 pb-3">
-            <button className="btn btn-light h-100 float-end"><FontAwesomeIcon icon="fa-solid fa-circle-chevron-down" />&nbsp; Tampilkan Lainnya</button>
-          </div>
         </div>
-        
+
+      </div> 
          
        
         
